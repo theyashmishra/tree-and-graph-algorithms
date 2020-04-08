@@ -1,0 +1,34 @@
+int findmax(node*root){
+    node*temp=root;
+    int a,l,r,m=INT_MIN;
+    
+    if(root){a=root->k;
+        l=findmax(root->lt);
+        r=findmax(root->rt);
+        if(l<r){
+            m=r;
+        }
+        else{m=l;}
+    
+    if(a>m){m=a;}
+    }
+    return m;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+minimum element
+int findmin(node*root){
+    node*temp=root;
+    int a,l,r,m=INT_MAX;
+    
+    if(root){a=root->k;
+        l=findmin(root->lt);
+        r=findmin(root->rt);
+        if(l<r){
+            m=l;
+        }
+        else{m=r;}
+    
+    if(a<m){m=a;}
+    }
+    return m;
+}
