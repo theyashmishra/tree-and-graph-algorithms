@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct node{
+    int k;
+    struct node *lt,*rt;
+    node(int data){
+ 
+     k=data;
+     lt=rt=NULL;
+   
+}
+};
+ 
+void insert(node*root,int da){
+    node*temp=root;
+    queue<node*>q;
+    q.push(temp);
+    while(!q.empty()){
+        temp=q.front();
+        q.pop();
+        if(!temp->lt){
+            temp->lt= new node(da);
+            break;
+        }
+        else
+        q.push(temp->lt);
+        if(!temp->rt){
+            temp->rt=new node(da);
+            break;
+        }
+        else
+        q.push(temp->rt);
+    }
+}
+void inorder(node*root){
+     if (!root) 
+        return; 
+        
+    inorder(root->lt);
+    cout<<root->k<<" ";
+    inorder(root->rt);
+}
+void preorder(node *root){
+    if (!root) 
+        return; 
+        
+        cout<<root->k<<" ";
+        preorder(root->lt);
+        preorder(root->rt);
+}
+void postorder(node*root){
+       if (!root) 
+        return; 
+        
+    postorder(root->lt);
+    postorder(root->rt);
+    cout<<root->k<<" ";
+}
+int main() {
+node* root;
+root=new node(7);
+int y,x=4;
+while(x--){
+    cin>>y;
+    insert(root,y);
+}
+inorder(root);
+preorder(root);
+postorder(root);
+	return 0;
+}
