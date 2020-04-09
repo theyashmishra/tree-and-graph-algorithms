@@ -1,0 +1,35 @@
+void lev(Node* temp) 
+{ Node*tem=temp;
+    queue<Node*> q; 
+ int l=0,h=0;
+    q.push(tem); 
+ 
+    // Do level order traversal until we find 
+    // an empty place.  
+    while (!q.empty()) { 
+        tem = q.front(); 
+        q.pop(); 
+  if(tem->left==NULL&&tem->right==NULL){
+      l++;
+  }
+  if((tem->left!=NULL&&tem->right==NULL)||(tem->left==NULL&&tem->right!=NULL)){
+      h++;}
+        if (tem->left) { 
+          q.push(tem->left);}
+  
+        if (tem->right) { 
+           q.push(tem->right) ;
+        }
+    }
+    
+    cout<<l<<"&*"<<h;}
+    //////////////////////////////////////////////
+    void com(node*r1,Node*r2){
+    if(r1==NULL&&r2==NULL){
+    return 1;
+    }
+   else if(r1==NULL||r2==NULL){
+    return 0;}
+    else{
+    return(r1->data==r2->data&&com(r1->left,r2->left)&&com(r1->right,r2->right);}
+    }
