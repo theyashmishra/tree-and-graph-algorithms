@@ -1,0 +1,36 @@
+void lev(Node* temp) 
+{ Node*tem=temp;//zig zag traversal//
+    queue<Node*> q; 
+    stack<Node*>s;
+    q.push(tem); 
+ 
+  
+    while (!q.empty()) { 
+        tem = q.front(); 
+        q.pop(); 
+  s.push(tem);
+        if (tem->left) { 
+          q.push(tem->left);}
+  
+        if (tem->right) { 
+           q.push(tem->right) ;
+        }
+    }
+    while(!s.empty()){
+        tem=s.top();
+        cout<<tem->key<<" ";
+        s.pop();
+    }
+} 
+//////////////////////////////////
+tree deletion
+void delet(Node *root){
+    if(root==NULL){
+        return;
+    }
+    else{
+        delet(root->left);
+        delet(root->right);
+        free(root);
+    }
+}
