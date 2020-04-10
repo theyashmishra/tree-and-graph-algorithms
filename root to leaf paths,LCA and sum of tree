@@ -33,3 +33,21 @@ int sum(node*root){
         return(root->k+sum(root->lt)+sum(root->rt));
     }
 }  
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Least common ancestor
+ node * lca(node *root,node* a,node*b){
+    if(!root){
+        return 0;
+    }
+    if((root->lt==a&&root->rt==b)||(root->lt==b||root->rt==a)){
+        return root;
+    }
+   node*l= lca(root->lt,a,b);
+    node*r=lca(root->rt,a,b);
+    if(l&&r){
+        return root;
+    }
+    else{
+       return(l?l:r);
+    }
+} 
