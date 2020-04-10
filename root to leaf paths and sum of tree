@@ -24,3 +24,12 @@ void prin(node *root,int a[],int n){
     prin(root->lt,a,n);
     prin(root->rt,a,n);
 }
+//////////////////////////////////////////////////////////////////////
+int sum(node*root){
+    if(!root){
+        return 0;
+    }
+    else{
+        return(root->k+sum(root->lt)+sum(root->rt));
+    }
+}  
