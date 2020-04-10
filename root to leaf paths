@@ -1,0 +1,26 @@
+void print(int a[],int n){
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+}
+void preorder(node *root){
+    if (!root) 
+        return; 
+        
+        cout<<root->k<<" ";
+        preorder(root->lt);
+        preorder(root->rt);
+}
+void prin(node *root,int a[],int n){
+    if(root==NULL){
+        return;
+    }
+    a[n]=root->k;
+    n++;
+    if(!root->lt&&!root->rt){
+       cout<<"\n";
+        print(a,n);
+    }
+    prin(root->lt,a,n);
+    prin(root->rt,a,n);
+}
