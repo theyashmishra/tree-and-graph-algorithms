@@ -1,0 +1,44 @@
+
+Node* kthSmallest(Node* root, int& count, int k) 
+{ 
+	// base case 
+	if (root == NULL) 
+		return NULL; 
+
+	// search in left subtree 
+	Node* left = kthSmallest(root->left, count, k); 
+
+	// if k'th smallest is found in left subtree, return it 
+	if (left != NULL) 
+		return left; 
+
+	// if current element is k'th smallest, return it 
+	count++; 
+	if (count == k) 
+		return root; 
+
+	// else search in right subtree 
+	return kthSmallest(root->right, count, k); 
+} 
+///////////////////////////////////////////////////////////////////////////////////////////////
+Node* kthSmallest(Node* root, int& count, int k) 
+{ 
+	// base case 
+	if (root == NULL) 
+		return NULL; 
+
+	// search in left subtree 
+	Node* r = kthSmallest(root->right, count, k); /*here left pointer is changed by right pointer and this function gives us kth max.*/
+
+	// if k'th smallest is found in left subtree, return it 
+	if (r != NULL) 
+		return r; 
+
+	// if current element is k'th smallest, return it 
+	count++; 
+	if (count == k) 
+		return root; 
+
+	// else search in right subtree 
+	return kthSmallest(root->left, count, k); 
+} 
