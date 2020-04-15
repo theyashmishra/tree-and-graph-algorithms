@@ -1,0 +1,36 @@
+int Ceil(Node* root, int input) 
+{ 
+    // Base case 
+    if (root == NULL) 
+        return -1; 
+  
+    // We found equal key 
+    if (root->data == input) 
+        return root->data; 
+  
+    // If root's key is smaller, ceil must be in right subtree 
+    if (root->data < input) 
+        return Ceil(root->right, input); 
+  
+    // Else, either left subtree or root has the ceil value 
+    int x = Ceil(root->left, input); 
+    return (x >= input) ? x : root->data; 
+} ///////////////////////////////////////////////////////////////////////////////
+int Ceil(Node* root, int input) 
+{ 
+    // Base case 
+    if (root == NULL) 
+        return INT_MAX; 
+  
+    // We found equal key 
+    if (root->data == input) 
+        return root->data; 
+  
+    // If root's key is smaller, ceil must be in right subtree 
+    if (root->data >input) 
+        return Ceil(root->left, input); 
+  
+    // Else, either left subtree or root has the ceil value 
+    int x = Ceil(root->right, input); 
+    return (x <= input) ? x : root->data; 
+} 
