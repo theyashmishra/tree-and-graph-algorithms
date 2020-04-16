@@ -1,0 +1,14 @@
+void nu(Node*temp,int k,int k1){
+    if(temp==NULL){
+        return ;
+    }
+    if(temp->data>=k){
+        nu(temp->left,k,k1);
+    }
+    if(temp->data>=k&&temp->data<=k1){
+        cout<<temp->data<<" ";
+    }
+    if(temp->data<=k){
+         nu(temp->right,k,k1);
+    }
+}
