@@ -1,0 +1,33 @@
+void zigzag(Node*root){
+    if(!root){
+        return;
+    }
+    stack<Node*>cl;
+    stack<Node*>nl;
+    cl.push(root);
+    bool l2r=1;
+    while(!cl.empty()){
+        Node*temp=cl.top();
+        cl.pop();
+        if(temp){
+            cout<<temp->data<<" ";
+            
+            if(l2r){
+                if(temp->left)
+                nl.push(temp->left);
+                if(temp->right)
+                nl.push(temp->right);
+            }
+            else{
+                  if(temp->right)
+                nl.push(temp->right);
+                if(temp->left)
+                nl.push(temp->left);
+            }
+        }
+        if(cl.empty()){
+            l2r=!l2r;
+            swap(cl,nl);
+        }
+    }
+}
