@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+void graphi(vector<int>a[],int u,int v){
+    a[v].push_back(u);
+    a[u].push_back(v);
+}
+void prin(vector<int>a[],int t){
+  for(int i=0;i<t;++i){
+        cout<<i;
+        for(auto p:a[i]){
+            cout<<"->"<<p;
+        }
+        cout<<"\n";
+     
+    }
+}
+int main() {
+int t=5;
+vector<int>a[t];
+int u,v,x,y=6;
+while(y--){
+cin>>u>>v;
+graphi(a,u,v);
+}
+prin(a,t);
+	return 0;
+}
