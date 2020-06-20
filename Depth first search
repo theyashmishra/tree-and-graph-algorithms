@@ -1,0 +1,17 @@
+void dfs(vector<int>a[],int u,vector<bool>&visi){
+    visi[u]==true;
+    cout<<u<<" ";
+    for(int i=0;i<a[u].size();i++){
+        if(visi[a[u][i]]==false){
+            dfs(a,a[u][i],visi);
+        }
+    }
+}
+void dfsi(vector<int>a[],int t){
+    vector<bool>visi(t,false);
+    for(int i=0;i<t;i++){
+        if(!visi[i]){
+            dfs(a,i,visi);
+        }
+    }
+}
